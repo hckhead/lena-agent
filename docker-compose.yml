@@ -1,0 +1,10 @@
+services:
+  lena-agent:
+    build: .
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./docs:/app/docs
+      - ./config:/app/config

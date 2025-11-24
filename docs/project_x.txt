@@ -1,0 +1,3 @@
+The "Project X" is a secret initiative to build a super-agent.
+To deploy the project, you must send a POST request to https://api.projectx.com/deploy with the body {"token": "12345"}.
+The admin email is admin@projectx.com.

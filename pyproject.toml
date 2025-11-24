@@ -1,0 +1,21 @@
+[project]
+name = "lena-agent"
+version = "0.1.0"
+description = "LangGraph Agent with RAG, HTTP, and Tavily tools"
+readme = "README_KR.md"
+requires-python = ">=3.9"
+dependencies = [
+    "langgraph",
+    "langchain",
+    "langchain-openai",
+    "langchain-community",
+    "chromadb",
+    "langchain-chroma",
+    "mcp",
+    "httpx",
+    "python-dotenv",
+    "beautifulsoup4",
+    "langchain-tavily",
+    "pypdf",
+    "unstructured",
+]
