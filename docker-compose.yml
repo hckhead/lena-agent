@@ -8,3 +8,15 @@ services:
     volumes:
       - ./docs:/app/docs
       - ./config:/app/config
+
+  lena-agent-api:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - SERVER_MODE=api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./docs:/app/docs
+      - ./config:/app/config

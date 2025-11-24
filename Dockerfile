@@ -31,9 +31,16 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 # Add the virtual environment to PATH
 ENV PATH="/app/.venv/bin:$PATH"
+# Server mode: mcp or api
+ENV SERVER_MODE=mcp
 
-# Expose any ports if necessary (MCP usually runs over stdio, but if using SSE/WebSockets, expose port)
-# For stdio usage, we don't strictly need EXPOSE, but good practice if we add HTTP later.
+# Expose port for API mode
+EXPOSE 8000
 
 # Command to run the application
-CMD ["python", "server.py"]
+# Use SERVER_MODE to determine which server to run
+CMD if [ "$SERVER_MODE" = "api" ]; then \
+        python api_server.py; \
+    else \
+        python server.py; \
+    fi

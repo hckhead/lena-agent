@@ -18,4 +18,6 @@ dependencies = [
     "langchain-tavily",
     "pypdf",
     "unstructured",
+    "fastapi",
+    "uvicorn[standard]",
 ]
