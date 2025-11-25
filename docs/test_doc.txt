@@ -1,0 +1,2 @@
+LENA is a modern application server platform.
+It provides high performance and scalability.

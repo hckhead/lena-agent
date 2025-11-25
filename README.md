@@ -115,10 +115,10 @@ Copy-Item .env.example .env  # Windows PowerShell
 # .env 파일을 편집하여 실제 API 키 입력
 
 # MCP 서버 실행
-docker-compose up lena-agent --build
+docker compose up lena-agent --build
 
 # 또는 REST API 서버 실행
-docker-compose up lena-agent-api --build
+docker compose up lena-agent-api --build
 ```
 
 ---
@@ -132,7 +132,7 @@ OpenAI API와 호환되는 HTTP REST API를 제공합니다.
 **Docker Compose:**
 
 ```bash
-docker-compose up lena-agent-api --build
+docker compose up lena-agent-api --build
 ```
 
 **로컬 실행:**

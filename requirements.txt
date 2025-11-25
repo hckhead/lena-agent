@@ -9,3 +9,5 @@ httpx
 python-dotenv
 beautifulsoup4
 langchain-tavily
+rank_bm25
+flashrank
