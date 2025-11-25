@@ -8,6 +8,7 @@ services:
     volumes:
       - ./docs:/app/docs
       - ./config:/app/config
+      - ./chroma_db:/app/chroma_db
 
   lena-agent-api:
     build: .
@@ -20,3 +21,4 @@ services:
     volumes:
       - ./docs:/app/docs
       - ./config:/app/config
+      - ./chroma_db:/app/chroma_db

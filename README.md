@@ -251,6 +251,11 @@ print(result["choices"][0]["message"]["content"])
 
 * 내부 문서(`docs/` 폴더)를 검색하여 질문에 답변
 * **지원 파일**: `.txt`, `.md`, `.pdf`
+* **하이브리드 검색**: BM25(키워드) + Vector(의미) 결합
+* **캐싱**: 벡터 DB(`chroma_db/`)를 자동으로 저장하여 재시작 시 빠르게 로드
+  * 첫 실행: 문서 임베딩 (10~30초)
+  * 재실행: 캐시 로드 (0.5초 이내)
+* **옵션**: `RAG_ENABLE_RERANK=true`로 Re-ranking 활성화 (정확도↑, 속도↓)
 
 ### HTTP 요청
 
