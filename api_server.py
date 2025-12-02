@@ -136,3 +136,13 @@ if __name__ == "__main__":
         port=8000,
         reload=False
     )
+
+def main():
+    """Entry point for CLI command: lena-agent-api"""
+    uvicorn.run(
+        "api_server:api",
+        host="0.0.0.0",
+        port=8000,
+        reload=False
+    )
+

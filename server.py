@@ -26,3 +26,8 @@ async def ask_agent(query: str) -> str:
 
 if __name__ == "__main__":
     mcp.run()
+
+def main():
+    """Entry point for CLI command: lena-agent"""
+    mcp.run()
+

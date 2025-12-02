@@ -1,9 +1,21 @@
 [project]
 name = "lena-agent"
 version = "0.1.0"
-description = "LangGraph Agent with RAG, HTTP, and Tavily tools"
-readme = "README_KR.md"
-requires-python = ">=3.9"
+description = "LangGraph Agent with RAG, HTTP, Tavily Search, and Context7 MCP tools"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+keywords = ["langchain", "langgraph", "rag", "mcp", "ai-agent"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
 dependencies = [
     "langgraph",
     "langchain",
@@ -20,4 +32,15 @@ dependencies = [
     "unstructured",
     "fastapi",
     "uvicorn[standard]",
+    "rank-bm25",
+    "flashrank",
 ]
+
+[project.scripts]
+lena-agent = "server:main"
+lena-agent-api = "api_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

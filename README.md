@@ -1,6 +1,10 @@
-# LENA Agent 사용 가이드
+# LENA Agent
 
-이 프로그램은 LangGraph를 기반으로 구축된 AI 에이전트로, RAG(검색 증강 생성), HTTP 요청, 웹 검색, 그리고 Context7 MCP 통합 기능을 제공합니다. **MCP 서버** 또는 **REST API 서버**로 동작할 수 있습니다.
+**LangGraph 기반 AI 에이전트** - RAG, HTTP 요청, 웹 검색, Context7 MCP 통합
+
+이 프로젝트는 **MCP 서버** (Claude Desktop용) 또는 **REST API 서버** (범용 HTTP 클라이언트용)로 동작합니다.
+
+> 📖 **상세 설치 가이드**: [INSTALL.md](INSTALL.md)
 
 ## 📐 아키텍처 (Architecture)
 
@@ -102,11 +106,32 @@ graph TB
 
 ## 🚀 빠른 시작 (Quick Start)
 
-### Docker Compose 사용 (권장)
+### Option 1: Git에서 직접 설치 (가장 간단)
+
+```bash
+# Git 저장소에서 설치
+uv tool install git+https://github.com/username/lena-agent.git
+
+# .env 파일 설정 (프로젝트 폴더에서)
+cp .env.example .env
+# .env 파일을 편집하여 API 키 입력
+```
+
+**사용:**
+
+```bash
+# MCP 서버 실행
+lena-agent
+
+# REST API 서버 실행
+lena-agent-api
+```
+
+### Option 2: 로컬 클론
 
 ```bash
 # 저장소 클론
-git clone <repository-url>
+git clone https://github.com/username/lena-agent.git
 cd lena-agent
 
 # 환경 변수 설정
@@ -114,6 +139,19 @@ cp .env.example .env  # Linux/Mac
 Copy-Item .env.example .env  # Windows PowerShell
 # .env 파일을 편집하여 실제 API 키 입력
 
+# 의존성 설치
+uv sync
+
+# MCP 서버 실행
+uv run server.py
+
+# 또는 REST API 서버 실행
+uv run api_server.py
+```
+
+### Option 3: Docker Compose
+
+```bash
 # MCP 서버 실행
 docker compose up lena-agent --build
 
