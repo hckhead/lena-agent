@@ -77,7 +77,7 @@ def get_retriever(docs_dir: str = "docs", enable_rerank: bool = False, force_reb
                 embedding_function=OpenAIEmbeddings()
             )
             vector_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-            print("[RAG] ✓ Successfully loaded cached vector database")
+            print("[RAG] Successfully loaded cached vector database")
             
             # Note: BM25 retriever still needs documents to be loaded
             # We need to load documents for BM25 anyway
@@ -146,7 +146,7 @@ def get_retriever(docs_dir: str = "docs", enable_rerank: bool = False, force_reb
             persist_directory=persist_directory
         )
         vector_retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-        print("[RAG] ✓ Vector database created and saved")
+        print("[RAG] Vector database created and saved")
     
     # 2. Keyword Search (BM25) - always needs to be rebuilt from documents
     print("[RAG] Initializing BM25 keyword search...")
@@ -172,5 +172,5 @@ def get_retriever(docs_dir: str = "docs", enable_rerank: bool = False, force_reb
         )
         final_retriever = compression_retriever
     
-    print("[RAG] ✓ Retriever ready")
+    print("[RAG] Retriever ready")
     return final_retriever

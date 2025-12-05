@@ -22,3 +22,27 @@ services:
       - ./docs:/app/docs
       - ./config:/app/config
       - ./chroma_db:/app/chroma_db
+
+  lena-agent-demo:
+    build: .
+    environment:
+      - SERVER_MODE=demo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - lena-agent-api
+
+  # Combined: API + Demo in one container
+  lena-agent-full:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - SERVER_MODE=full
+    ports:
+      - "8000:8000"
+      - "3000:3000"
+    volumes:
+      - ./docs:/app/docs
+      - ./config:/app/config
+      - ./chroma_db:/app/chroma_db

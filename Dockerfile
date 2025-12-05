@@ -31,16 +31,21 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 # Add the virtual environment to PATH
 ENV PATH="/app/.venv/bin:$PATH"
-# Server mode: mcp or api
+# Server mode: mcp, api, demo, or full
 ENV SERVER_MODE=mcp
 
-# Expose port for API mode
-EXPOSE 8000
+# Expose ports for API and Demo modes
+EXPOSE 8000 3000
 
 # Command to run the application
 # Use SERVER_MODE to determine which server to run
 CMD if [ "$SERVER_MODE" = "api" ]; then \
         python api_server.py; \
+    elif [ "$SERVER_MODE" = "demo" ]; then \
+        python -m demo.server --no-browser --port 3000; \
+    elif [ "$SERVER_MODE" = "full" ]; then \
+        python api_server.py & \
+        python -m demo.server --no-browser --port 3000; \
     else \
         python server.py; \
     fi

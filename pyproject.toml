@@ -34,13 +34,33 @@ dependencies = [
     "uvicorn[standard]",
     "rank-bm25",
     "flashrank",
+    "markdown>=3.10",
 ]
 
 [project.scripts]
 lena-agent = "server:main"
 lena-agent-api = "api_server:main"
+lena-agent-demo = "demo.server:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent", "demo"]
+include = ["server.py", "api_server.py"]
+
+[tool.hatch.build.targets.wheel.sources]
+"demo" = "demo"
+
+[tool.hatch.build]
+include = [
+    "agent/**/*.py",
+    "demo/**/*.py",
+    "demo/**/*.html",
+    "demo/**/*.css",
+    "demo/**/*.js",
+    "server.py",
+    "api_server.py",
+]
 
